@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { MovieContext } from '../../../Context/MovieContext';
+// import React, { useState } from 'react';
 
-const Search = () => {
+const Search = (): JSX.Element => {
+	const { search, setSearch } = useContext(MovieContext);
+	// const [input, setInput] = useState('');
+
 	return (
-		<div>
+		<div className="input-wrapp">
 			<form>
-				<input type='text' id='search' placeholder='Search...' autoComplete="off" className="search" />
+				<input
+					type='text'
+					placeholder='Search...'
+					autoComplete='off'
+					className='search'
+					value={search}
+					onChange={(e) => setSearch(e.target.value)}
+				/>
 			</form>
 		</div>
 	);

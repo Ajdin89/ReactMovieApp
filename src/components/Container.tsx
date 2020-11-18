@@ -1,7 +1,6 @@
 import React from 'react';
 
-
-const Container = ({children}:any) => {
+const Container = ({children}: any): JSX.Element => {
 	return (
 		<div className='container'>
       {children}

@@ -1,7 +1,7 @@
 import React from 'react';
 import NavLink from './NavLink';
 
-const NavMenu = () => {
+const NavMenu = (): JSX.Element => {
 	return (
 		<nav className="wrapper">
 			<NavLink btnText="Movies" />

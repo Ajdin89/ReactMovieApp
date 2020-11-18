@@ -1,16 +1,12 @@
 import React from 'react';
-import Container from '../../Container';
 import NavMenu from './NavMenu'
 import Search from './Search'
 
-const Nav = () => {
+const Nav = (): JSX.Element => {
 	return (
-		<div>
-			<Container>
-				<h1 className="header">React Movie App</h1>
+		<div className="navbar">
 				<NavMenu />
 				<Search />
-			</Container>
 		</div>
 	);
 };
