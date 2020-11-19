@@ -8,6 +8,8 @@ interface IState {
 	setActiveLink: (param: string) => void;
 	movies: any;
 	setMovies: (param: []) => void;
+	isLoading: boolean;
+	setIsLoading: (param: boolean) => void;
 }
 
 interface Props {
@@ -21,6 +23,8 @@ const initialState: IState = {
 	setActiveLink: () => {},
 	movies: [],
 	setMovies: () => {},
+	isLoading: false,
+	setIsLoading: () => {},
 };
 
 export const MovieContext = React.createContext<IState>(initialState);
@@ -31,6 +35,7 @@ export const MovieState: React.FC<Props> = ({ children }: any) => {
 	const [search, setSearch] = useState('');
 	const [activeLink, setActiveLink] = useState('Movies');
 	const [movies, setMovies] = useState([]);
+	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
 		const getMovies = async () => {
@@ -39,6 +44,7 @@ export const MovieState: React.FC<Props> = ({ children }: any) => {
 			);
 			console.log(response.data.results);
 			setMovies(response.data);
+			setIsLoading(true);
 		};
 		getMovies();
 	}, []);
@@ -52,6 +58,8 @@ export const MovieState: React.FC<Props> = ({ children }: any) => {
 				setActiveLink,
 				movies,
 				setMovies,
+				isLoading,
+				setIsLoading,
 			}}
 		>
 			{children}

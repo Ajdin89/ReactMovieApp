@@ -7,7 +7,7 @@ const Search = (): JSX.Element => {
 	// const [input, setInput] = useState('');
 
 	return (
-		<div className="input-wrapp">
+		<div className='input-wrap'>
 			<form>
 				<input
 					type='text'
