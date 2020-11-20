@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { MovieContext } from '../../../Context/MovieContext';
+import { AppContext } from '../../../Context/MovieContext';
 import { AppProps } from '../../../interfaces';
 
 const NavLink = ({ btnText }: AppProps): JSX.Element => {
-	const { activeLink, setActiveLink } = useContext(MovieContext);
+	const { activeLink, setActiveLink } = useContext(AppContext);
 
 	return (
 		<div>

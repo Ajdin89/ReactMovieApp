@@ -1,10 +1,8 @@
 import React, { useContext } from 'react';
-import { MovieContext } from '../../../Context/MovieContext';
-// import React, { useState } from 'react';
+import { AppContext } from '../../../Context/MovieContext';
 
 const Search = (): JSX.Element => {
-	const { search, setSearch } = useContext(MovieContext);
-	// const [input, setInput] = useState('');
+	const { search, setSearch } = useContext(AppContext);
 
 	return (
 		<div className='input-wrap'>

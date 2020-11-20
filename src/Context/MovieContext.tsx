@@ -10,6 +10,8 @@ interface IState {
 	setMovies: (param: []) => void;
 	isLoading: boolean;
 	setIsLoading: (param: boolean) => void;
+	tvShows: any;
+	setTvShows: (param: []) => void;
 }
 
 interface Props {
@@ -25,9 +27,11 @@ const initialState: IState = {
 	setMovies: () => {},
 	isLoading: false,
 	setIsLoading: () => {},
+	tvShows: [],
+	setTvShows: () => {},
 };
 
-export const MovieContext = React.createContext<IState>(initialState);
+export const AppContext = React.createContext<IState>(initialState);
 
 const API_KEY = 'bf3b531aa8e1cfd8643d5a0e2982da5d';
 
@@ -36,21 +40,35 @@ export const MovieState: React.FC<Props> = ({ children }: any) => {
 	const [activeLink, setActiveLink] = useState('Movies');
 	const [movies, setMovies] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
+	const [tvShows, setTvShows] = useState([]);
 
+	// FETCH MOVIES DATA
 	useEffect(() => {
 		const getMovies = async () => {
 			const response: any = await axios(
 				`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
 			);
-			console.log(response.data.results);
+			// console.log(response.data.results.slice(10));
 			setMovies(response.data);
 			setIsLoading(true);
 		};
 		getMovies();
 	}, []);
 
+	// FETCH TVSHOWS DATA
+	useEffect(() => {
+		const getTvShows = async () => {
+			const response: any = await axios(
+				`https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}`
+			);
+			// console.log(response.data.results);
+			setTvShows(response.data);
+		};
+		getTvShows();
+	}, []);
+
 	return (
-		<MovieContext.Provider
+		<AppContext.Provider
 			value={{
 				search,
 				setSearch,
@@ -60,9 +78,11 @@ export const MovieState: React.FC<Props> = ({ children }: any) => {
 				setMovies,
 				isLoading,
 				setIsLoading,
+				tvShows,
+				setTvShows,
 			}}
 		>
 			{children}
-		</MovieContext.Provider>
+		</AppContext.Provider>
 	);
 };
