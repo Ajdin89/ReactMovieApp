@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-interface AppProps {
+export interface TvShowItemProps {
 	tvShowItem: any;
 }
 
-class TvShowItem extends Component<AppProps> {
+class TvShowItem extends Component<TvShowItemProps> {
 	render(): JSX.Element {
 		const { tvShowItem } = this.props;
 

@@ -1,16 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import NavLink from './NavLink';
+import { NavLink } from 'react-router-dom';
 
 const NavMenu = (): JSX.Element => {
 	return (
-		<nav className='wrapper'>
-			<Link to='/'>
-				<NavLink btnText='Movies' />
-			</Link>
-			<Link to='/tvshows'>
-				<NavLink btnText='TVShows' />
-			</Link>
+		<nav className='nav-wrap'>
+			<NavLink exact to='/movies' className='btn-link'>
+				Movies
+			</NavLink>
+			<NavLink exact to='/tvshows' className='btn-link'>
+				TV Shows
+			</NavLink>
 		</nav>
 	);
 };
