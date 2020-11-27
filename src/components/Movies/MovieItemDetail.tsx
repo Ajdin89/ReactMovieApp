@@ -46,8 +46,6 @@ const MovieItemDetail = () => {
 		fetchMovieVideos();
 	}, [id]);
 	
-console.log(videos);
-
 	const goBack = () => history.goBack();
 
 	const videoShow =

@@ -68,8 +68,6 @@ class TvShowItemDetail extends React.Component<IProps, IState> {
 			isLoadingVideo,
 		} = this.state;
 
-		console.log(videos);
-
 		const videoShow =
 			videos.length > 0 && !isLoadingVideo ? (
 				<VideoSlider items={videos} />
